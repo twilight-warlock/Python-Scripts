@@ -1,5 +1,8 @@
 from yahoo_fin import stock_info
 from time import sleep
+from win10toast import ToastNotifier
+
+hr = ToastNotifier()
 
 brand = input("Enter company name: ")
 cp = int(input("Enter cost price: "))
@@ -15,4 +18,5 @@ while True:
         print("Profittt")
     elif(price > upperBound):
         print("Target hit, current price is",price)
+        hr.show_toast("Target hit, current price is",price)
 
