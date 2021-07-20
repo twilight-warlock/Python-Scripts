@@ -14,9 +14,9 @@ while True:
 
     if(price < lowerBound):
         print("Sell now")
-    elif(price>lowerBound and price>cp):
+    elif(price>lowerBound and price>cp and price<upperBound):
         print("Profittt")
-    elif(price > upperBound):
+    elif(price >= upperBound):
         print("Target hit, current price is",price)
-        hr.show_toast("Target hit, current price is",price)
+        hr.show_toast("Target hit, current price is",str(price))
 
