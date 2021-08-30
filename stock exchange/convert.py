@@ -1,4 +1,4 @@
-import csv
+import csv, math
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from time import sleep
@@ -37,7 +37,7 @@ def createStockCsv(name, link, start):
     print("Creating file for "+name)
 
     for i in range(0, len(output), 5):
-        percent = "+"
+        percent = "UP "
         res = True
         try:
             float(output[i+3][1:])
@@ -45,10 +45,10 @@ def createStockCsv(name, link, start):
             res = False
         if res:
             if output[i+4][0] == "▼":
-                percent = "-"
+                percent = "DN "
             # print([output[i], output[i+1], output[i+2],
             #        output[i+3], percent + output[i+4][1:]])
-            lol.append([output[i], output[i+1], output[i+2],
+            lol.append([output[i], output[i+1], output[i+2].split(".")[0],
                         output[i+3], percent + output[i+4][1:]])
         else:
             val = "0"
